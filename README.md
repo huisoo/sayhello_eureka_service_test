@@ -12,7 +12,7 @@ REST API 에 반응 local 웹 서버
 GET localhost:8080/hello?name=$name
 ```
 
-```json
+```
 (Response) :
 application/json
 { “to”: “$name”, “message”: “hello $name” }
