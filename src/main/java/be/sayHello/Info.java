@@ -43,22 +43,4 @@ public class Info {
         return message;
     }
 
-    public Info addJob(Mono<Map> job){
-        //String jobValue = this.getJob();
-        //this.setJob();
-        //this.changeJob()
-        Info tInfo = this;
-        job.map( jobMap -> {
-            String jobValue = jobMap.get("job").toString();
-            tInfo.setJob(jobValue);
-            return true;
-            //this.setJob(jobMap.get("job").toString());
-            //return getJob();
-        });
-
-
-        return tInfo;
-    }
-
-
 }
