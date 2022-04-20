@@ -24,7 +24,7 @@ public class CustomHandler {
         String name = request.queryParam("name").get();
 
         Mono<Map> infoServiceMap = webClient.get()
-                .uri("/uri?name=" + name)
+                .uri("/info-service?name=" + name)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve().bodyToMono(Map.class);
 
