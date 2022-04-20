@@ -11,6 +11,6 @@ GET localhost:8080/hello?name=$name
 
 (Response) :
 application/json
-'''json
+```json
 { “to”: “$name”, “message”: “hello $name” }
-'''
+```
