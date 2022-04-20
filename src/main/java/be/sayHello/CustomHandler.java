@@ -23,14 +23,10 @@ public class CustomHandler {
 
         String name = request.queryParam("name").get();
 
-
-
         Mono<Map> infoServiceMap = webClient.get()
                 .uri("/uri?name=" + name)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve().bodyToMono(Map.class);
-
-        //Mono<Info> info = Mono.just(new Info(name, "hello " + name, "init"));
 
         Mono<Info> info = infoServiceMap.map(job -> {
                     Info infos = new Info(name, "hello " + name, job.get("job").toString());
@@ -38,17 +34,6 @@ public class CustomHandler {
                 }
         );
 
-        //Object obj = info.cast(Object.class);
-        //System.out.println("test");
-
-        //info.subscribe(result -> result)
-        /*infoServiceMap.doOnNext(r -> {
-            info.setJob(r.get("job").toString());
-        }).subscribe();*/
-
-        //ServerResponse.ok().contentType(MediaType.APPLICATION_JSON)
-
-
-        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).bodyValue(info);
+        return ServerResponse.ok().contentType(MediaType.APPLICATION_JSON).body(info, Info.class);
     }
 }
