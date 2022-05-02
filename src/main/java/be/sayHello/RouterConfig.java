@@ -14,7 +14,7 @@ public class RouterConfig {
     @Bean
     public RouterFunction<ServerResponse> router(CustomHandler customHandler){
         return RouterFunctions.route()
-                .GET("/hello", customHandler::someRequestMethod)
+                .GET("/hello/test", customHandler::someRequestMethod)
                 .build();
     }
 }
